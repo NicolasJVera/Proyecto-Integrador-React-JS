@@ -65,7 +65,7 @@ export const MobileMenuButton = styled.button`
 `;
 
 export const MobileMenu = styled.div`
-  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+  display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')};
   flex-direction: column;
   width: 90%;
   max-width: 300px;
@@ -74,9 +74,9 @@ export const MobileMenu = styled.div`
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  max-height: ${({ isOpen }) => (isOpen ? '500px' : '0')};
+  max-height: ${({ $isOpen }) => ($isOpen ? '500px' : '0')};
   transition: max-height 0.3s ease-out, opacity 0.2s ease-out;
-  opacity: ${({ isOpen }) => (isOpen ? '1' : '0')};
+  opacity: ${({ $isOpen }) => ($isOpen ? '1' : '0')};
   position: absolute;
   z-index: 1000;
   left: 50%;
@@ -85,13 +85,13 @@ export const MobileMenu = styled.div`
 
 export const MobileMenuItem = styled.div`
   padding: 1rem 1.5rem;
-  color: ${({ active, theme }) => (active ? theme.colors.primary : '#fff')};
+  color: ${({ $active, theme }) => ($active ? theme.colors.primary : '#fff')};
   font-family: ${(props) => props.theme.fonts.text};
   cursor: pointer;
   text-align: center;
   transition: all 0.2s ease;
   border-bottom: 1px solid #222;
-  background: ${({ active }) => (active ? 'rgba(51, 204, 255, 0.1)' : 'transparent')};
+  background: ${({ $active }) => ($active ? 'rgba(51, 204, 255, 0.1)' : 'transparent')};
 
   &:last-child {
     border-bottom: none;
@@ -104,20 +104,19 @@ export const MobileMenuItem = styled.div`
 `;
 
 export const FilterButton = styled.button`
-  background-color: ${({ active, theme }) =>
-    active ? theme.colors.light : "#111"};
-  color: ${({ active, theme }) =>
-    active ? "#000" : theme.colors.white}; 
-    border: none;
+  background-color: ${({ $active, theme }) =>
+    $active ? theme.colors.light : "#111"};
+  color: ${({ $active, theme }) =>
+    $active ? "#000" : theme.colors.white}; 
+  border: none;
   font-family: ${(props) => props.theme.fonts.title};
   padding: 1rem 1.5rem;
   border-radius: 999px;
   cursor: pointer;
-  font-weight: ${({ active }) => (active ? "bold" : "normal")};
+  font-weight: ${({ $active }) => ($active ? "bold" : "normal")};
   transition: all 0.3s ease;
   font-size: 1rem;
   
-
   &:hover {
     color: #33cfff;
     animation: ${bump} 0.3s ease, ${neonGlow} 2s infinite ease-in-out alternate;

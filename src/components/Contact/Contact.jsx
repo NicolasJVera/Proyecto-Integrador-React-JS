@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { ContactForm, ContactWrapper, FormGroup, NewsletterForm, Section, Subtitle, Title, SuccessMessage } from "./ContactStyles";
+import { ContactForm, ContactWrapper, FormGroup, Section, Subtitle, Title, SuccessMessage } from "./ContactStyles";
 import useContactForm from "./Formik/useContactForm";
+import Newsletter from '../Newsletter/Newsletter';
 
 function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -17,10 +18,10 @@ function Contact() {
       <Title>Únete a Nuestra Comunidad</Title>
       <Subtitle>Suscríbase a nuestro newsletter para obtener ofertas exclusivas, recién llegados e inspiración oscura.</Subtitle>
 
-      <NewsletterForm>
+      <Newsletter>
         <input type="email" placeholder="Su dirección de correo electrónico" />
         <button type="submit">Subscribete!</button>
-      </NewsletterForm>
+      </Newsletter>
 
       <ContactWrapper>
         <Title>Contáctenos</Title>

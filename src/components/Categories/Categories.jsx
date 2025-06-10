@@ -58,12 +58,12 @@ export const Categories = () => {
             {selectedCategory || 'Seleccionar categoría'}
             <FaChevronDown style={{ marginLeft: '8px' }} />
           </MobileMenuButton>
-          <MobileMenu isOpen={isMenuOpen}>
+          <MobileMenu $isOpen={isMenuOpen}>
             {categories.map((cat) => (
               <MobileMenuItem 
                 key={cat.category}
                 onClick={() => handleSelectCategory(cat.category)}
-                active={selectedCategory === cat.category}
+                $active={selectedCategory === cat.category}
               >
                 {cat.category}
               </MobileMenuItem>

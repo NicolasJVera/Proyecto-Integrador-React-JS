@@ -21,23 +21,64 @@ export const Subtitle = styled.p`
     color: ${(props) => props.theme.colors.white};
     margin-bottom: 2rem;
 `
-export const NewsletterForm = styled.form`
+export const NewsletterForm = styled.div`
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 2rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    
+    .form-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 1rem;
+      width: 100%;
+      flex-wrap: nowrap;
+    }
 
   input {
     padding: 15px 15px;
-    background-color: #333;
     color: ${(props) => props.theme.colors.white};
     width: 100%;
     max-width: 400px;
     border: 1px solid rgb(51, 51, 51);
     border-radius: 5px;
     background-color: rgb(26, 26, 26);
+    transition: all 0.3s ease;
+    
+    &:focus {
+      outline: none;
+      border-color: ${(props) => props.theme.colors.primary};
+      box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    }
+    
+    &.invalid {
+      border-color: #ff4444;
+    }
+    
+    &.valid {
+      border-color: #00C851;
+    }
   }
 
+  .input-wrapper {
+    flex: 1 1 auto;
+    max-width: 400px;
+    min-width: 200px;
+    width: 100%;
+    
+    .error-message {
+      color: #ff4444;
+      font-size: 0.85rem;
+      margin-top: 0.25rem;
+      text-align: left;
+      padding-left: 0.5rem;
+    }
+  }
+  
   button {
     font-family: ${(props) => props.theme.fonts.title};
     padding: 15px 30px;
@@ -47,6 +88,21 @@ export const NewsletterForm = styled.form`
     color: ${(props) => props.theme.colors.black};
     font-weight: bold;
     cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    flex: 0 0 auto;
+    height: 50px; /* Ajusta según el alto de tu input */
+    
+    &:disabled {
+      background: #666;
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+    
+    &:not(:disabled):hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
     &:hover {
 
