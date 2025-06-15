@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   CartContainer,
   CartHeader,
@@ -25,10 +26,15 @@ import { useCart } from "./hooks/useCart";
 import { IoClose } from "react-icons/io5";
 import useShipping from "./hooks/useShipping";
 import { formatPrice } from "../../utils/formatPrice";
-import { Link, animateScroll as scroll } from "react-scroll";
 import { FaShoppingCart, FaTrashAlt } from "react-icons/fa";
 
 const Cart = ({ isOpen, onClose }) => {
+  const navigate = useNavigate();
+  
+  const handleGoToProducts = () => {
+    onClose();
+    navigate('/productos');
+  };
   const {
     cartItems,
     total,
@@ -68,15 +74,9 @@ const Cart = ({ isOpen, onClose }) => {
             Tu carrito está vacío.
           </EmptyCartMessage>
 
-          <Link
-            to="productos"
-            smooth={true}
-            duration={600}
-            offset={-80} // ajustá según tu navbar
-            onClick={onClose}
-          >
-            <GoToShopButton>Explorar productos</GoToShopButton>
-          </Link>
+          <GoToShopButton onClick={handleGoToProducts}>
+            Explorar productos
+          </GoToShopButton>
         </EmptyCartContainer>
       ) : (
         <CartItemsContainer>

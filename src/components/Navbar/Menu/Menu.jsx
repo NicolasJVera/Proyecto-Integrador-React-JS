@@ -1,12 +1,24 @@
 import { MenuLabel, MenuIcon, NavList, NavItem, NavLink } from "./MenuStyles";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import menuIcon from "/icons/menu.svg";
 
 const Menu = ({ isOpen, onToggleMenu }) => {
-  const [activeLink, setActiveLink] = useState("home");
+  const location = useLocation();
+  const [activeLink, setActiveLink] = useState("");
 
-  // Función para manejar el cambio de activo y cerrar el menú
-  const handleSetActive = (to) => {
+  // Actualizar el enlace activo cuando cambia la ruta
+  useEffect(() => {
+    const path = location.pathname;
+    if (path === "/") setActiveLink("home");
+    else if (path.includes("productos")) setActiveLink("productos");
+    else if (path.includes("coleccion")) setActiveLink("coleccion");
+    else if (path.includes("nosotros")) setActiveLink("nosotros");
+    else if (path.includes("contacto")) setActiveLink("contacto");
+  }, [location]);
+
+  // Función para manejar el cierre del menú al hacer clic en un enlace
+  const handleLinkClick = (to) => {
     setActiveLink(to);
     onToggleMenu(); // Cierra el menú al hacer clic en un enlace
   };
@@ -19,11 +31,9 @@ const Menu = ({ isOpen, onToggleMenu }) => {
       <NavList className={isOpen ? "open-menu" : ""}>
         <NavItem>
           <NavLink
-            to="home"
-            smooth={true}
-            duration={500}
+            to="/"
             className={`nav-link ${activeLink === "home" ? "active-link" : ""}`}
-            onClick={(e) => handleSetActive("home", e)}
+            onClick={() => handleLinkClick("home")}
           >
             Home
           </NavLink>
@@ -31,12 +41,9 @@ const Menu = ({ isOpen, onToggleMenu }) => {
         
         <NavItem>
           <NavLink
-            to="coleccion"
-            smooth={true}
-            duration={500}
-            offset={-147}
+            to="/coleccion"
             className={`nav-link ${activeLink === "coleccion" ? "active-link" : ""}`}
-            onClick={(e) => handleSetActive("coleccion", e)} 
+            onClick={() => handleLinkClick("coleccion")} 
           >
             Colecciones
           </NavLink>
@@ -44,11 +51,9 @@ const Menu = ({ isOpen, onToggleMenu }) => {
         
         <NavItem>
           <NavLink
-            to="productos"
-            smooth={true}
-            duration={500}
+            to="/productos"
             className={`nav-link ${activeLink === "productos" ? "active-link" : ""}`}
-            onClick={(e) => handleSetActive("productos", e)} 
+            onClick={() => handleLinkClick("productos")} 
           >
             Productos
           </NavLink>
@@ -56,12 +61,9 @@ const Menu = ({ isOpen, onToggleMenu }) => {
 
         <NavItem>
           <NavLink
-            to="nosotros"
-            smooth={true}
-            duration={500}
-            offset={-147}
+            to="/nosotros"
             className={`nav-link ${activeLink === "nosotros" ? "active-link" : ""}`}
-            onClick={(e) => handleSetActive("nosotros", e)} 
+            onClick={() => handleLinkClick("nosotros")} 
           >
             Nosotros
           </NavLink>
@@ -69,12 +71,9 @@ const Menu = ({ isOpen, onToggleMenu }) => {
 
         <NavItem>
           <NavLink
-            to="contacto"
-            smooth={true}
-            duration={500}
-            offset={200}
+            to="/contacto"
             className={`nav-link ${activeLink === "contacto" ? "active-link" : ""}`}
-            onClick={(e) => handleSetActive("contacto", e)} 
+            onClick={() => handleLinkClick("contacto")} 
           >
             Contacto
           </NavLink>

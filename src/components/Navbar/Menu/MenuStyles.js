@@ -1,4 +1,4 @@
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { bump, neonGlow } from "../../../animations/categories/filterButton";
 
