@@ -1,9 +1,4 @@
 import Hero from "../../components/Hero/Hero";
-import Coleccion from "../Coleccion/Coleccion";
-import Contacto from "../Contacto/Contacto";
-import Nosotros from "../Nosotros/Nosotros";
-import Productos from "../Productos/Productos";
-
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -19,7 +14,7 @@ function Home() {
     <>
       <Hero />
 
-      <section id="coleccion">
+      {/* <section id="coleccion">
         <Coleccion />
       </section>
 
@@ -33,7 +28,7 @@ function Home() {
 
       <section id="contacto">
         <Contacto />
-      </section>
+      </section> */}
     </>
   );
 }

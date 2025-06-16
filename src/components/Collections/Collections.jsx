@@ -7,6 +7,7 @@ import {
   CardImage,
   CardContent
 } from "./CollectionsStyles";
+import { Link } from "react-router-dom";
 
 function Collections() {
 
@@ -28,7 +29,7 @@ function Collections() {
           </CardImage>
           <CardContent>
             <h3>Todos Los Productos</h3>
-            <a href="#productos">Explora ↓</a>
+            <Link to="/productos">Explora ↓</Link>
           </CardContent>
         </Card>
 
@@ -42,7 +43,7 @@ function Collections() {
           <CardContent>
             <h3>Merch de Bandas</h3>
             <p>Remeras, buzos y más de tus bandas favoritas. Estilo oscuro y auténtico.</p>
-            <a href="#productos">Explora ↓</a>
+            <Link to="/productos">Explora ↓</Link>
           </CardContent>
         </Card>
         <Card>
@@ -55,7 +56,7 @@ function Collections() {
           <CardContent>
             <h3>Hoddies</h3>
             <p>Abrigate con estilo. Hoodies oversize con arte oscuro.</p>
-            <a href="#productos">Explora ↓</a>
+            <Link to="/productos">Explora ↓</Link>
           </CardContent>
         </Card>
         <Card>
@@ -68,7 +69,7 @@ function Collections() {
           <CardContent>
             <h3>Anime Merch</h3>
             <p>Fusionamos lo mejor del anime con la estética gótica.</p>
-            <a href="#productos">Explora ↓</a>
+            <Link to="/productos">Explora ↓</Link>
           </CardContent>
         </Card>
         <Card>
@@ -81,7 +82,7 @@ function Collections() {
           <CardContent>
             <h3>Jeans Alternativos</h3>
             <p>Jeans que no siguen reglas. Cierres, cortes, y detalles que rugen rebeldía con cada paso.</p>
-            <a href="#productos">Explora ↓</a>
+            <Link to="/productos">Explora ↓</Link>
           </CardContent>
         </Card>
         
@@ -95,7 +96,7 @@ function Collections() {
           <CardContent>
             <h3>Mochilas Alternativas</h3>
             <p>Mochilas que no siguen reglas. Cierres, cortes, y detalles que rugen rebeldía con cada paso.</p>
-            <a href="#productos">Explora ↓</a>
+            <Link to="/productos">Explora ↓</Link>
           </CardContent>
         </Card>
       </CardsContainer>

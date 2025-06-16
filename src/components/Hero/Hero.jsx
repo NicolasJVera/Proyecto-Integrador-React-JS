@@ -12,7 +12,7 @@ import {
   itemVariants,
   buttonVariants,
 } from "../../animations/hero/variants";
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
 
 function Hero() {
   return (
@@ -32,7 +32,7 @@ function Hero() {
         </Description>
         <ButtonContainer>
           <Button as={motion.div} variants={buttonVariants} whileHover="hover">
-            <Link to="productos" smooth={true} duration={600} offset={-80}>
+            <Link to="/productos">
               Explorar Productos
             </Link>
           </Button>
@@ -43,7 +43,7 @@ function Hero() {
             variants={buttonVariants}
             whileHover="hover"
           >
-            <Link to="aboutUs" smooth={true} duration={800} offset={-80}>
+            <Link to="/nosotros">
               Sobre Nosotros
             </Link>
           </Button>
