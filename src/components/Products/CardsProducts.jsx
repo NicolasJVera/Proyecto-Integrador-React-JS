@@ -14,8 +14,10 @@ import {
   defaultHandlers,
   scrollToTop,
 } from "../Products/constants/paginationConfig";
+import { useSelector } from "react-redux";
 
 const CardsProducts = () => {
+  const { selectedCategory } = useSelector(state => state.categories);
   const {
     topRef,
     visibleProducts,
@@ -44,21 +46,23 @@ const CardsProducts = () => {
         </ProductsGrid>
       </AnimatedGrid>
 
-      <ButtonContainerStyled>
-        {currentPage > 1 && <ButtonCard onClick={handlePrev}>{"<"}</ButtonCard>}
-        {pageNumbers.map((number) => (
-          <ButtonCard
-            key={number}
-            onClick={() => handlePageClick(number)}
-            className={currentPage === number ? "active" : ""}
-          >
-            {number}
-          </ButtonCard>
-        ))}
-        {currentPage < totalPages && (
-          <ButtonCard onClick={handleNext}>{">"}</ButtonCard>
-        )}
-      </ButtonContainerStyled>
+      {!selectedCategory && (
+        <ButtonContainerStyled>
+          {currentPage > 1 && <ButtonCard onClick={handlePrev}>{"<"}</ButtonCard>}
+          {pageNumbers.map((number) => (
+            <ButtonCard
+              key={number}
+              onClick={() => handlePageClick(number)}
+              className={currentPage === number ? "active" : ""}
+            >
+              {number}
+            </ButtonCard>
+          ))}
+          {currentPage < totalPages && (
+            <ButtonCard onClick={handleNext}>{">"}</ButtonCard>
+          )}
+        </ButtonContainerStyled>
+      )}
     </ProductsSection>
   );
 };
